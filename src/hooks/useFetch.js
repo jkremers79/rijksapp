@@ -8,8 +8,8 @@ export function useFetch(url) {
 
   useEffect(() => {
     const getData = async function () {
+      console.log("Firing useEffect");
       try {
-        console.log("test");
         const response = await axios.get(url);
         setApiData(response.data);
         setIsLoading(false);
