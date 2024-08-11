@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { GalleryCard } from "../components/GalleryCard";
 import { useFetch } from "../hooks/useFetch";
 import "./Gallery.css";
 
@@ -22,14 +22,9 @@ export const Gallery = () => {
           <p>{serverError.message}</p>
         </>
       ) : (
-        apiData.artObjects.map((artObject) => {
-          return (
-            <div key={artObject.objectNumber}>
-              <p>{artObject.title}</p>
-              <img src={artObject.webImage.url} width="300px" />
-            </div>
-          );
-        })
+        apiData.artObjects.map((artObject) => (
+          <GalleryCard key={artObject.id} artObject={artObject} />
+        ))
       )}
     </>
   );
