@@ -10,20 +10,23 @@ export const Gallery = () => {
   );
 
   console.log(apiData);
-  serverError && console.log(serverError.message);
 
   return (
     <>
       <h1>Rijks Gallery</h1>
       {isLoading ? (
         <h1>Loading the data...</h1>
+      ) : serverError ? (
+        <>
+          <p>Oops, something went wrong</p>
+          <p>{serverError.message}</p>
+        </>
       ) : (
-        apiData &&
         apiData.artObjects.map((artObject) => {
           return (
             <div key={artObject.objectNumber}>
               <p>{artObject.title}</p>
-              <img src={artObject.webImage.url} width="500px" />
+              <img src={artObject.webImage.url} width="300px" />
             </div>
           );
         })
