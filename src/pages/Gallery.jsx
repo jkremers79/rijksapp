@@ -6,7 +6,7 @@ export const Gallery = () => {
   const APIKEY = import.meta.env.VITE_API_KEY;
 
   const { apiData, serverError, isLoading } = useFetch(
-    `https://www.rijksmuseum.nl/api/en/collection?key=${APIKEY}&involvedMaker=Rembrandt+van+Rijn`
+    `https://www.rijksmuseum.nl/api/en/collection?key=${APIKEY}&type=painting`
   );
 
   console.log(apiData);
@@ -15,7 +15,7 @@ export const Gallery = () => {
     <>
       <h1>Rijks Gallery</h1>
       {isLoading ? (
-        <h1>Loading the data...</h1>
+        <h1>Loading the gallery...</h1>
       ) : serverError ? (
         <>
           <p>Oops, something went wrong</p>

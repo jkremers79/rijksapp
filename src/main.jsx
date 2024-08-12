@@ -4,6 +4,7 @@ import { Root } from "./components/Root";
 import { Gallery } from "./pages/Gallery";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import { ArtPage } from "./pages/ArtPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Gallery />,
       },
+      {
+        path: "/art/:objectId",
+        element: <ArtPage />
+      }
     ],
   },
 ]);

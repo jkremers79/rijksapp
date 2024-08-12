@@ -11,7 +11,6 @@ export function useFetch(url) {
       console.log("Firing useEffect");
       try {
         const response = await axios.get(url);
-        console.log(response);
         setApiData(response.data);
         setIsLoading(false);
       } catch (error) {

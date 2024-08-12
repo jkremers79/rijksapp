@@ -1,4 +1,4 @@
-import "./Artpage.css";
+import "./ArtPage.css";
 
 export const ArtPage = () => {
   return <></>;
