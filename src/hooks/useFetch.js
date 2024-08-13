@@ -3,23 +3,28 @@ import { useEffect, useState } from "react";
 
 export function useFetch(url) {
   const [apiData, setApiData] = useState(null);
-  const [serverError, setServerError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getData = async function () {
       console.log("Firing useEffect");
       try {
-        const response = await axios.get(url);
+        setIsLoading(true);
+        const response = await axios.get(url,
+          {
+            timeout: 30000
+          });
         setApiData(response.data);
-        setIsLoading(false);
       } catch (error) {
-        setServerError(error);
+        setFetchError(error);
+      }
+      finally {
         setIsLoading(false);
       }
     };
     getData();
   }, [url]);
 
-  return { apiData, isLoading, serverError };
+  return { apiData, isLoading, fetchError };
 }

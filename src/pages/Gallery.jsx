@@ -5,8 +5,8 @@ import "./Gallery.css";
 export const Gallery = () => {
   const APIKEY = import.meta.env.VITE_API_KEY;
 
-  const { apiData, serverError, isLoading } = useFetch(
-    `https://www.rijksmuseum.nl/api/en/collection?key=${APIKEY}&type=painting`
+  const { apiData, fetchError, isLoading } = useFetch(
+    `https://www.rijksmuseum.nl/api/en/collection?key=${APIKEY}&type=painting&toppieces=true`
   );
 
   console.log(apiData);
@@ -16,12 +16,13 @@ export const Gallery = () => {
       <h1>Rijks Gallery</h1>
       {isLoading ? (
         <h1>Loading the gallery...</h1>
-      ) : serverError ? (
+      ) : fetchError ? (
         <>
           <p>Oops, something went wrong</p>
-          <p>{serverError.message}</p>
+          <p>{fetchError.message}</p>
         </>
       ) : (
+        apiData &&
         apiData.artObjects.map((artObject) => (
           <GalleryCard key={artObject.id} artObject={artObject} />
         ))
