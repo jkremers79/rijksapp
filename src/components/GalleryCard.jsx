@@ -6,7 +6,7 @@ export const GalleryCard = ({ artObject }) => {
     <Link to={`./art/${artObject.objectNumber}`}>
       <div key={artObject.objectNumber} className="art_card">
         <div className="header_container">
-          <h1 className="header_card">{artObject.title}</h1>
+          <h1>{artObject.title}</h1>
         </div>
         <img src={artObject.headerImage.url} alt={artObject.title} />
       </div>

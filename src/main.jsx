@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import { Root } from "./components/Root";
 import { Gallery } from "./pages/Gallery";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import { ArtPage } from "./pages/ArtPage";
 
 const router = createBrowserRouter([
@@ -17,8 +16,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/art/:objectId",
-        element: <ArtPage />
-      }
+        element: <ArtPage />,
+      },
     ],
   },
 ]);

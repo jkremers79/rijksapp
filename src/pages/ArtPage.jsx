@@ -15,10 +15,10 @@ export const ArtPage = () => {
       {isLoading ? (
         <h1>Loading artwork...</h1>
       ) : fetchError ? (
-        <>
+        <div className="fetch_error">
           <p>Oops, something went wrong</p>
           <p>{fetchError.message}</p>
-        </>
+        </div>
       ) : (
         apiData && console.log(apiData.artObject)
       )}
