@@ -10,6 +10,8 @@ export const ArtPage = () => {
     `https://www.rijksmuseum.nl/api/en/collection/${objectId}?key=${APIKEY}`
   );
 
+  apiData && console.log(apiData.artObject);
+
   return (
     <>
       {isLoading ? (
@@ -20,7 +22,16 @@ export const ArtPage = () => {
           <p>{fetchError.message}</p>
         </div>
       ) : (
-        apiData && console.log(apiData.artObject)
+        apiData && (
+          <div className="art_page_container">
+            <h1>{apiData.artObject.title}</h1>
+            <img
+              src={apiData.artObject.webImage.url}
+              alt={apiData.artObject.title}
+            />
+            <p>{apiData.artObject.label.description}</p>
+          </div>
+        )
       )}
     </>
   );

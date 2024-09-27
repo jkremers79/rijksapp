@@ -6,6 +6,7 @@
 }
 
 .fetch_error {
+  width: 70vw;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   padding: 3rem;
 }
