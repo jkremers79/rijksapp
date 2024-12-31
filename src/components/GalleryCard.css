@@ -3,10 +3,10 @@
   height: 200px;
   position: relative;
 
-  a {
+  /* a {
     text-decoration: none;
     color: hsl(0, 0%, 12%);
-  }
+  } */
 
   img {
     width: 350px;
@@ -39,7 +39,9 @@
     }
   }
 
-  &:hover .header_container {
-    opacity: 1;
+  &:hover {
+    .header_container {
+      opacity: 1;
+    }
   }
 }

@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Root } from "./components/Root";
+import { Root } from "./Root";
 import { Gallery } from "./pages/Gallery";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ArtPage } from "./pages/ArtPage";
